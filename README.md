@@ -74,3 +74,48 @@ php artisan key:generate
 ```shell
 CREATE DATABASE agenda-salas;
 ```
+* 5- Execute as migrações do banco de dados para criar as tabelas necessárias:
+
+```shell
+php artisan migrate
+```
+
+* 6- Inicie o servidor embutido do Laravel:
+
+```shell
+php artisan serve
+```
+
+* O backend estará disponível em
+
+```shell
+http://localhost:8000
+```
+### Frontend (React)
+
+* 1- Navegue até a pasta do frontend
+```shell
+cd frontend
+```
+* 2- Instale as dependências do React:
+```shell
+npm install
+```
+* 3- Inicie a aplicação React:
+```shell
+npm start
+```
+
+* O frontend estará disponível em
+ ```shell
+http://localhost:3000
+```
+
+### Uso
+- Acesse o sistema no navegador através do endereço:
+ ```shell
+http://localhost:3000
+```
+- Visualize a lista de salas disponíveis.
+- Para realizar uma reserva, clique em "Reservar", preencha os campos necessários e - clique em "Salvar".
+- Para editar ou cancelar uma reserva, acesse a reserva desejada e utilize as opções disponíveis.
