@@ -1,0 +1,78 @@
+.room-list-container {
+    margin: 20px;
+    text-align: center;
+  }
+
+  .room-list-container h2{
+    text-align: start;
+  }
+  
+  .room-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    flex-direction: row;
+  }
+  
+  .room-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .room-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .room-name {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .room-capacity {
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .no-rooms-message {
+    font-style: italic;
+    color: #666;
+  }
+  
+  /* Estilo e posição do botão "Adicionar Sala" */
+  .add-room-button-container {
+    display: flex;
+    margin: 20px;
+    height: 190px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 150px;
+  }
+  
+  .add-room-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+  }
+  
+  .add-room-button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -10,7 +10,8 @@ class SalaController extends Controller
     // Listar todas as salas
     public function index()
     {
-        $salas = Sala::all();
+        // Retorna todas as salas paginadas, altere '10' para o número desejado por página
+        $salas = Sala::paginate(10);
         return response()->json($salas);
     }
 

@@ -10,7 +10,8 @@ class ReservaController extends Controller
 {
     public function index()
     {
-        return Reserva::all();
+        // Paginação das reservas
+        return Reserva::paginate(10);
     }
 
     public function store(Request $request)
@@ -25,6 +26,11 @@ class ReservaController extends Controller
 
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
+        }
+
+        // Verifica se a sala já está reservada no intervalo de tempo solicitado
+        if ($this->isSalaReservada($request->sala_id, $request->data_hora_inicio, $request->data_hora_fim)) {
+            return response()->json(['message' => 'A sala já está reservada nesse período.'], 409);
         }
 
         // Criação da reserva
@@ -60,8 +66,13 @@ class ReservaController extends Controller
             return response()->json(['message' => 'Reserva não encontrada'], 404);
         }
 
+        // Verifica se a sala já está reservada no novo intervalo de tempo
+        if ($this->isSalaReservada($request->sala_id, $request->data_hora_inicio, $request->data_hora_fim, $id)) {
+            return response()->json(['message' => 'A sala já está reservada nesse período.'], 409);
+        }
+
         // Atualiza a reserva
-        $reserva->update($request->all());
+        $reserva->update($request->only(['sala_id', 'data_hora_inicio', 'data_hora_fim', 'nome_responsavel']));
         return response()->json($reserva);
     }
 
@@ -74,5 +85,21 @@ class ReservaController extends Controller
 
         $reserva->delete();
         return response()->json(['message' => 'Reserva deletada com sucesso']);
+    }
+
+    // Método para verificar conflitos de reservas
+    private function isSalaReservada($sala_id, $data_hora_inicio, $data_hora_fim, $excluir_id = null)
+    {
+        $query = Reserva::where('sala_id', $sala_id)
+            ->where(function ($query) use ($data_hora_inicio, $data_hora_fim) {
+                $query->whereBetween('data_hora_inicio', [$data_hora_inicio, $data_hora_fim])
+                      ->orWhereBetween('data_hora_fim', [$data_hora_inicio, $data_hora_fim]);
+            });
+
+        if ($excluir_id) {
+            $query->where('id', '!=', $excluir_id);
+        }
+
+        return $query->exists();
     }
 }

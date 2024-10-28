@@ -1,0 +1,191 @@
+/* Estilos gerais para o formulário */
+form {
+    max-width: 520px;
+    margin: 0 auto;
+    background-color: #dfdfdf;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Estilo dos rótulos */
+  label {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 5px;
+  }
+  
+  /* Estilo dos campos de entrada */
+  input[type="text"],
+  input[type="datetime-local"] {
+    width: 43%;
+    padding: 12px;
+    margin: 5px 0 20px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    color: #495057;
+    background-color: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  input[type="text"]:focus,
+  input[type="datetime-local"]:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    outline: none;
+  }
+  
+  /* Estilo do botão */
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilo para as mensagens de feedback */
+  p {
+    font-size: 0.9rem;
+    color: #155724;
+    background-color: #d4edda;
+    padding: 10px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  p.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+  
+  /* Estilo para exibir o título do formulário */
+  h2 {
+    text-align: center;
+    color: #495057;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .back-button {
+    background-color: #5e5f5f; 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px; 
+  }
+  
+  .back-button:hover {
+    background-color: #808181; 
+    transform: translateY(-2px); 
+  }
+  
+  .back-button:active {
+    transform: translateY(0); 
+  }
+  
+  .back-button:focus {
+    outline: none; 
+    box-shadow: 0 0 0 2px rgba(91, 92, 94, 0.5); 
+  }
+  
+
+  /* Estilo geral do select */
+   .select-custom {
+    appearance: none; 
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    margin-bottom: 20px;
+    padding: 10px; 
+    font-size: 16px; 
+    color: #333; 
+    transition: border-color 0.3s, box-shadow 0.3s; 
+    width: 100%; 
+  }
+  
+  /* Estilo quando o select é focado */
+  .select-custom:focus {
+    border-color: #007bff; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+    outline: none; 
+  }
+  
+  /* Estilo da seta do select */
+  .select-custom::after {
+    content: '▼'; 
+    position: absolute; 
+    right: 10px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    pointer-events: none; 
+  }
+  
+  /* Estilo para esconder a seta padrão do select */
+  .select-custom::-ms-expand {
+    display: none; 
+  }
+  /* Estilo geral dos inputs */
+.input-custom {
+    appearance: none; 
+    background-color: #f0f0f0; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    padding: 10px; 
+    font-size: 16px; 
+    color: #333; 
+    transition: border-color 0.3s, box-shadow 0.3s; 
+    width: 96%;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo quando o input é focado */
+  .input-custom:focus {
+    border-color: #007bff; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+    outline: none; 
+  }
+  
+  /* Estilo para textos dentro do input (placeholder) */
+  .input-custom::placeholder {
+    color: #999; 
+    opacity: 1; 
+  }
+  
+  
+  /* Estilo para tornar o layout responsivo */
+  @media (max-width: 768px) {
+    form {
+      padding: 15px;
+    }
+    
+    button[type="submit"] {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+  }
+  

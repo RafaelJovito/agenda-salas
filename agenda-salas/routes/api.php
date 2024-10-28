@@ -23,6 +23,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Rotas para o recurso de reservas
 Route::apiResource('reservas', ReservaController::class);
+Route::apiResource('reservar', ReservaController::class);
+Route::put('/reservas/{id}', [ReservaController::class, 'update']);
 
+// Rotas para o recurso de salas
 Route::apiResource('salas', SalaController::class);
+Route::put('/salas/{id}', [SalaController::class, 'update']);
 
